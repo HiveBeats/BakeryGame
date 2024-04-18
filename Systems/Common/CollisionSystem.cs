@@ -1,9 +1,12 @@
 using System.Numerics;
+using BakeryGame.Components.Common;
+using BakeryGame.Components.Environment;
+using BakeryGame.Components.Player;
 using BakeryGame.Models;
 using Raylib_cs;
 using Scellecs.Morpeh;
 
-namespace BakeryGame.Systems;
+namespace BakeryGame.Systems.Common;
 
 public class CollisionSystem: ISystem
 {

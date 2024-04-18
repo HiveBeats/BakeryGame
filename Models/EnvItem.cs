@@ -1,5 +1,7 @@
 using Raylib_cs;
 
+namespace BakeryGame.Models;
+
 public struct EnvItem
 {
     public EnvItem(Rectangle rect, Color color, bool canCollide)

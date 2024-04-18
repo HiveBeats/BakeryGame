@@ -1,5 +1,8 @@
+using BakeryGame.Components.Player;
 using Raylib_cs;
 using Scellecs.Morpeh;
+
+namespace BakeryGame.Systems.Player;
 
 public sealed class HealthSystem : ISystem
 {

@@ -1,8 +1,11 @@
-using System.Numerics;
+using BakeryGame.Components.Common;
+using BakeryGame.Components.Player;
 using Raylib_cs;
 using Scellecs.Morpeh;
 
-public class BallRenderSystem : ISystem
+namespace BakeryGame.Systems.Player;
+
+public class PlayerRenderSystem : ISystem
 {
     private Filter _filter;
     public World World { get; set; }

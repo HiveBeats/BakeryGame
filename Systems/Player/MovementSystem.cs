@@ -1,6 +1,10 @@
+using BakeryGame.Components.Common;
+using BakeryGame.Components.Player;
 using BakeryGame.Models;
 using Raylib_cs;
 using Scellecs.Morpeh;
+
+namespace BakeryGame.Systems.Player;
 
 public sealed class MovementSystem : ISystem
 {

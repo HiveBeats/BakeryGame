@@ -1,6 +1,7 @@
 using System.Numerics;
-using Raylib_cs;
 using Scellecs.Morpeh;
+
+namespace BakeryGame.Components.Player;
 
 public struct PlayerComponent : IComponent
 {

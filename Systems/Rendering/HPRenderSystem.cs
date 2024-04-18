@@ -1,5 +1,8 @@
+using BakeryGame.Components.Player;
 using Raylib_cs;
 using Scellecs.Morpeh;
+
+namespace BakeryGame.Systems.Rendering;
 
 public class HPRenderSystem : ILateSystem
 {

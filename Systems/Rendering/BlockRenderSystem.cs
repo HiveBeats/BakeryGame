@@ -1,5 +1,9 @@
+using BakeryGame.Components.Common;
+using BakeryGame.Components.Environment;
 using Raylib_cs;
 using Scellecs.Morpeh;
+
+namespace BakeryGame.Systems.Rendering;
 
 public class BlockRenderSystem : ISystem
 {

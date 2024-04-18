@@ -1,7 +1,9 @@
 using Raylib_cs;
 using Scellecs.Morpeh;
 
+namespace BakeryGame.Components.Player;
+
 public struct CameraComponent : IComponent
 {
-    public Camera2D Camera;
+    public Camera3D Camera;
 }
