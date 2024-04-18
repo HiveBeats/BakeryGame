@@ -12,11 +12,13 @@ public static class SystemRegistrations
         var healthSystem = new HealthSystem { World = world };
         var movementSystem = new MovementSystem { World = world };
         var collisionSystem = new CollisionSystem(world);
+        
         var systemsGroup = world.CreateSystemsGroup();
         systemsGroup.AddSystem(healthSystem);
         systemsGroup.AddSystem(movementSystem);
         systemsGroup.AddSystem(collisionSystem);
-
+        
+        
         systemsGroup.EnableSystem(movementSystem);
         systemsGroup.EnableSystem(healthSystem);
         systemsGroup.EnableSystem(collisionSystem);
@@ -28,7 +30,7 @@ public static class SystemRegistrations
         var renderSystemsGroup = world.CreateSystemsGroup();
         var hpRenreSystem = new HPRenderSystem { World = world };
         var ballRenderSystem = new PlayerRenderSystem { World = world };
-        var cameraSystem = new CameraSystem(world);
+        var cameraSystem = new CameraSystem() {World = world };
         var blockRenderSystem = new BlockRenderSystem(world);
 
         renderSystemsGroup.AddSystem(blockRenderSystem);

@@ -1,6 +1,7 @@
 using System.Numerics;
 using BakeryGame.Components.Common;
 using BakeryGame.Components.Player;
+using BakeryGame.Models;
 using Raylib_cs;
 using Scellecs.Morpeh;
 
@@ -23,7 +24,7 @@ public  class PlayerFactory
         player.SetComponent(new MovementComponent() { Speed = 0.1f });
         camera = new CameraComponent()
         {
-            Camera = new Camera3D(new(0.0f, 10.0f, 10.0f), new(0.0f, 0.0f, 0.0f), new(0.0f, 1.0f, 0.0f), 45.0f, 0)
+            Camera = new CameraRef(new(0.0f, 20.0f, 10.0f), new(0.0f, 0.0f, 0.0f), new(0.0f, 1.0f, 0.0f), 60.0f)
         };
         player.SetComponent(camera);
         

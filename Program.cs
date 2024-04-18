@@ -18,17 +18,8 @@ namespace BakeryGame;
 internal class Program
 {
     private static World _world;
-
-    private static readonly EnvItem[] _envItems =
-    {
-        new EnvItem(new Rectangle(0, 0, 1000, 400), Color.LightGray, false),
-        new EnvItem(new Rectangle(0, 400, 1000, 200), Color.Gray, true),
-        new EnvItem(new Rectangle(300, 200, 400, 100), Color.Gray, true),
-        new EnvItem(new Rectangle(250, 300, 100, 10), Color.Gray, true),
-        new EnvItem(new Rectangle(650, 300, 100, 10), Color.Gray, true)
-    };
-
-    
+    private static int WindowWidth = 800;
+    private static int WindowHeight = 480;
 
     private static void Main(string[] args)
     {
@@ -36,10 +27,11 @@ internal class Program
         var playerFactory = new PlayerFactory(_world);
         var blockFactory = new BlockFactory(_world);
         
-        Raylib.InitWindow(800, 480, "Hello World");
+        Raylib.InitWindow(WindowWidth, WindowHeight, "Hello World");
 
-        var player = playerFactory.CreatePlayer(out var camera);
-        var block = blockFactory.GenerateMapOfBlocks().ToList();
+        CameraComponent camera;
+        var player = playerFactory.CreatePlayer(out camera);
+        var block = RoomBuilder.GenerateMapOfBlocks(blockFactory).ToList();
 
         SystemRegistrations.RegisterLogicGroup(_world);
         SystemRegistrations.RegisterGraphicsGroup(_world);
@@ -48,15 +40,15 @@ internal class Program
         while (!Raylib.WindowShouldClose())
         {
             var deltaTime = Raylib.GetFrameTime();
-            //Raylib.UpdateCamera(ref camera.Camera, CameraMode.Free);
+            //Raylib.UpdateCamera(ref camera.Camera, CameraMode.Custom);
             Raylib.BeginDrawing();
             Raylib.ClearBackground(Color.White);
-            Raylib.BeginMode3D(camera.Camera);
+            Raylib.BeginMode3D(camera.Camera.GetCamera3D());
             _world.Update(deltaTime);
-            Raylib.DrawGrid(10, 1.0f);
+            Raylib.DrawGrid(RoomBuilder.RoomSize, 1.0f);
             _world.CleanupUpdate(deltaTime);
             Raylib.EndMode3D();
-            Raylib.DrawFPS(100, 10);
+            Raylib.DrawFPS(WindowWidth - 100, 12);
             _world.LateUpdate(deltaTime);
             _world.Commit();
             Raylib.EndDrawing();

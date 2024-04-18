@@ -28,19 +28,7 @@ public class BlockFactory
         return block;
     }
 
-    public IEnumerable<Entity> GenerateMapOfBlocks()
-    {
-        for (int x = -16 / 2; x <= 16 / 2; x++) {
-            for (int z = -16 / 2; z <= 16 / 2; z++) {
-                if (x == -16 / 2 || x == 16 / 2 || z == -16 / 2 || z == 16 / 2)
-                {
-                    yield return CreateBlock(x, z);
-                }
-            }
-        }
-        
-        
-    }
+    
 
     public const float BlockSize = 1;
 }
